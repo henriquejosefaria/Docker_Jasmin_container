@@ -11,8 +11,27 @@
   6. You are all set. Navigate to your files and compile them.
   7. To move the compiled assembly code to your local machine, exit the container and run ```docker cp <container_name>:<path_assembly_files> <path_local_machine>```
 
+Notes:
+  If your files compiled on MacOS and don't compile within the container, if the Jasmin compiler says it can not find a file, check if the upper and lower case letters match.
 
 
 # Dockerfile
 
+The simple Dockerfile provided here is an example of how to build one for your project:
+
+```
+# Use the provided image
+From jasmin_compiler
+
+# This command originally sets the directory where the next command will run.
+# It also creates a new directory path if it does not exist - here it creates
+# the directory a within the existing usr/src/ path.
+# This is useful to create distinct folders for several Jasmin projects at once.
+WORKDIR usr/src/a/
+COPY <my_local_jasmin_folder_path> usr/src/a/
+
+# Following from above
+WORKDIR usr/src/b/
+COPY <my_local_jasmin_folder_path2> usr/src/b/
+```
 
