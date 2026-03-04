@@ -9,7 +9,7 @@
   5. Run your new image in a container ```docker run -it <name_of_your_new_image> ```
   6. Start the opam environment with the jasmin compiler ```eval $(opam env)```
   7. You are all set. Navigate to your files and compile them.
-  8. To move the compiled assembly code to your local machine, exit the container and run ```docker cp <container_name>:<path_assembly_files> <path_local_machine>```
+  8. To move the compiled assembly code to your local machine, exit the container and run ```docker cp <container_name>:<path_tp_assembly_file> <path_local_machine>```
 
 Notes:
   If your files compiled on MacOS and don't compile within the container, if the Jasmin compiler says it can not find a file, check if the upper and lower case letters match.
