@@ -12,7 +12,7 @@
   8. To move the compiled assembly code to your local machine, exit the container and run ```docker cp <container_name>:<path_tp_assembly_file> <path_local_machine>```
 
 Notes:
-  If your files compiled on MacOS and don't compile within the container, if the Jasmin compiler says it can not find a file, check if the upper and lower case letters match.
+  If your Jasmin files do not compile within the container and the Jasmin compiler says it cannot find a file, check whether the upper- and lowercase letters of your files match those of the imported files.
 
 
 # Dockerfile
