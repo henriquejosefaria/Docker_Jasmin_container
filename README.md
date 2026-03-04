@@ -33,5 +33,9 @@ COPY <my_local_jasmin_folder_path> usr/src/a/
 # Following from above
 WORKDIR usr/src/b/
 COPY <my_local_jasmin_folder_path2> usr/src/b/
+
+# Here we set the current working directory to usr/src/.
+# When we ask Docker for a shell into the container, we start in the last set WORKDIR.
+WORKDIR usr/src/
 ```
 
