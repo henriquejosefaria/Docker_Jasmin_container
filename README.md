@@ -21,21 +21,22 @@ The simple Dockerfile provided here is an example of how to build one for your p
 
 ```
 # Use the provided image
-From jasmin_compiler
+FROM jasmin_compiler
 
-# This command originally sets the directory where the next command will run.
-# It also creates a new directory path if it does not exist - here it creates
-# the directory a within the existing usr/src/ path.
-# This is useful to create distinct folders for several Jasmin projects at once.
-WORKDIR usr/src/a/
-COPY <my_local_jasmin_folder_path> usr/src/a/
+# Creating a working directory within the container
+WORKDIR /usr/src/path/to/files/in/container/
 
-# Following from above
-WORKDIR usr/src/b/
-COPY <my_local_jasmin_folder_path2> usr/src/b/
+# Copy all files and subfolders in files/ into the created directory
+COPY path/local/source/files/ /usr/src/path/to/files/in/container
 
-# Here we set the current working directory to usr/src/.
-# When we ask Docker for a shell into the container, we start in the last set WORKDIR.
-WORKDIR usr/src/
+# Creating a second working directory within the container
+WORKDIR /usr/src/path/to/files/in/container2/
+
+# Copy only the files within the files2 folder into the created directory
+COPY path/local/source/files2/* /usr/src/path/to/files/in/container2/
+
+# When we ask Docker to give us a shell inside the container, it sets it
+# to the last working directory declared
+WORKDIR /usr/src/
 ```
 
