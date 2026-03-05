@@ -6,26 +6,18 @@
 
 FROM jasmin_compiler
 
-# COPY THE SLICED ARRAYS JASMIN FILES
+# Creating a working directory within the container
+WORKDIR /usr/src/path/to/files/in/container/
 
-WORKDIR /usr/src/new_keccak_small/picnic3l3-avx2/jasminCode/
-COPY new_keccak_small/picnic3l3-avx2/jasminCode/ /usr/src/new_keccak_small/picnic3l3-avx2/jasminCode/
+# Copy all files and subfolders in files/ into the created directory
+COPY path/local/source/files/ /usr/src/path/to/files/in/container
 
-WORKDIR /usr/src/new_keccak_small/picnic3l5-avx2/jasminCode/
-COPY new_keccak_small/picnic3l5-avx2/jasminCode/ /usr/src/new_keccak_small/picnic3l5-avx2/jasminCode/
+# Creating a second working directory within the container
+WORKDIR /usr/src/path/to/files/in/container2/
 
+# Copy only the files within the files2 folder into the created directory
+COPY path/local/source/files2/* /usr/src/path/to/files/in/container2/
 
-WORKDIR /usr/src/old/picnic3l3-avx2/jasminCode/
-COPY old/picnic3l3-avx2/jasminCode/ /usr/src/old/picnic3l3-avx2/jasminCode/
-
-WORKDIR /usr/src/old/picnic3l5-avx2/jasminCode/
-COPY old/picnic3l5-avx2/jasminCode/ /usr/src/old/picnic3l5-avx2/jasminCode/
-
-
-WORKDIR /usr/src/old_unrolled/picnic3l3-avx2/jasminCode/
-COPY old_unrolled/picnic3l3-avx2/jasminCode/ /usr/src/old_unrolled/picnic3l3-avx2/jasminCode/
-
-WORKDIR /usr/src/old_unrolled/picnic3l5-avx2/jasminCode/
-COPY old_unrolled/picnic3l5-avx2/jasminCode/ /usr/src/old_unrolled/picnic3l5-avx2/jasminCode/
-
+# When we ask Docker to give us a shell inside the container, it sets it
+# to the last working directory declared
 WORKDIR /usr/src/
