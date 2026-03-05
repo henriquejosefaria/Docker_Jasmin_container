@@ -1,4 +1,4 @@
-## This container provides reviewers of Jasmin papers with a way of compiling Jasmin code.
+## This container provides reviewers of Jasmin papers with an easy way of compiling Jasmin code.
 
 # Instructions:
 
@@ -9,7 +9,7 @@
   5. Run your new image in a container ```docker run -it <name_of_your_new_image> ```
   6. Start the opam environment with the jasmin compiler ```eval $(opam env)```
   7. You are all set. Navigate to your files and compile them.
-  8. To move the compiled assembly code to your local machine, exit the container and run ```docker cp <container_name>:<path_tp_assembly_file> <path_local_machine>```
+  8. To move the compiled assembly code to your local machine, exit the container and run ```docker cp <container_name>:<path_to_assembly_file> <path_local_machine>```
 
 Notes:
   If your Jasmin files do not compile within the container and the Jasmin compiler says it cannot find a file, check whether the upper- and lowercase letters of your files match those of the imported files.
